@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Morse Code Academy</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="bg-layer">
+<div class="bg-blob blob-1"></div>
+<div class="bg-blob blob-2"></div>
+<div class="bg-blob blob-3"></div>
+<div class="bg-blob blob-4"></div>
+<div class="bg-blob blob-5"></div>
+</div>
+
+<div id="particles" aria-hidden="true"></div>
+<div id="toast-container" role="status" aria-live="polite" aria-atomic="true"></div>
+
+<nav class="main-nav" role="navigation" aria-label="Main navigation">
+<div class="nav-inner">
+<a href="#home" class="nav-logo" aria-label="Morse Code Academy Home">
+<span class="logo-dot"></span>
+<span class="logo-text">MORSE<span>ACADEMY</span></span>
+</a>
+<ul class="nav-links" role="menubar">
+<li role="none"><a href="#home" role="menuitem" class="nav-link active" data-view="view-home">Home</a></li>
+<li role="none"><a href="#learn" role="menuitem" class="nav-link" data-view="view-learn">Learn</a></li>
+<li role="none"><a href="#practice" role="menuitem" class="nav-link" data-view="view-practice">Practice</a></li>
+<li role="none"><a href="#reference" role="menuitem" class="nav-link" data-view="view-reference">Reference</a></li>
+</ul>
+<button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+<span></span><span></span><span></span>
+</button>
+</div>
+</nav>
+
+<main role="main">
+
+<section id="view-home" class="view active" aria-labelledby="home-heading">
+<div class="container">
+<header class="hero">
+<div class="hero-content">
+<span class="hero-badge">Beginner to Pro Morse Academy</span>
+<h1 id="home-heading" class="hero-title">Master the Art<br/>of <span class="gradient-text">Dots &amp; Dashes</span></h1>
+<p class="hero-subtitle">Step-by-step beginner lessons, real-time auditory telegraph keyer, mnemonic flashcards, and gamified mastery. Start with zero experience!</p>
+<div class="hero-actions">
+<button class="btn btn-primary btn-lg" data-view-target="view-learn" aria-label="Start beginner learning lessons">
+<span>Start Learning (Beginner)</span>
+<span class="btn-icon" aria-hidden="true">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+</span>
+</button>
+<button class="btn btn-secondary btn-lg" data-view-target="view-practice" aria-label="Start practicing now">
+<span>Practice Quizzes</span>
+<span class="btn-icon" aria-hidden="true">
+<svg viewBox="0 0 24 24" fill="currentColor" class="svg-icon"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+</span>
+</button>
+<button class="btn btn-ghost btn-lg" data-view-target="view-reference" aria-label="View morse code reference">
+<span>Reference Chart</span>
+</button>
+</div>
+</div>
+<div class="hero-visual" aria-hidden="true">
+<div class="morse-wave">
+<div class="wave-bar wave-1"></div>
+<div class="wave-bar wave-2"></div>
+<div class="wave-bar wave-3"></div>
+<div class="wave-bar wave-4"></div>
+<div class="wave-bar wave-5"></div>
+<div class="wave-bar wave-6"></div>
+<div class="wave-bar wave-7"></div>
+<div class="wave-bar wave-8"></div>
+<div class="wave-bar wave-9"></div>
+</div>
+</div>
+</header>
+
+<section id="stats-panel" class="card tilt stats-panel" aria-label="Player statistics">
+<div class="stats-grid">
+<div class="stat-item">
+<div class="stat-label">Current Level</div>
+<div class="stat-level-row">
+<div class="stat-level-display">
+<span class="level-num" id="stats-level-num">1</span>
+<span class="level-name" id="stats-level-name">Beginner</span>
+</div>
+<div class="level-up-ring" id="level-up-ring" aria-hidden="true"></div>
+</div>
+</div>
+<div class="stat-item stat-xp">
+<div class="stat-label-row">
+<span class="stat-label">Experience</span>
+<span class="xp-value"><span id="stats-xp-current">0</span> / <span id="stats-xp-next">100</span> XP</span>
+</div>
+<div class="xp-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="XP progress">
+<div class="xp-bar-fill" id="xp-bar-fill"></div>
+<div class="xp-bar-shine"></div>
+</div>
+</div>
+<div class="stat-item">
+<div class="stat-label">Streak</div>
+<div class="streak-display">
+<span class="streak-flame" aria-hidden="true">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon flame-icon"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
+</span>
+<span class="streak-value" id="stats-streak">0</span>
+</div>
+</div>
+<div class="stat-item">
+<div class="stat-label">Total XP</div>
+<div class="total-xp-display">
+<span class="total-xp-value" id="stats-total-xp">0</span>
+<span class="total-xp-icon" aria-hidden="true">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon sparkles-icon"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+</span>
+</div>
+</div>
+</div>
+</section>
+
+<section class="levels-section" aria-labelledby="levels-heading">
+<h2 id="levels-heading" class="section-title">Choose Your Path</h2>
+<p class="section-subtitle">Start where you feel comfortable. Each level introduces new characters and faster speeds.</p>
+<div class="levels-grid">
+<article class="card tilt level-card level-beginner" data-level="1" tabindex="0" role="button" aria-label="Beginner level: start learning basics">
+<div class="level-card-header">
+<div class="level-icon" aria-hidden="true">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon"><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4.1 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/></svg>
+</div>
+<span class="level-badge">Level 1</span>
+</div>
+<h3 class="level-name-card">Beginner</h3>
+<p class="level-desc">E, T, I, A, N, M &mdash; the foundation letters at 10 WPM.</p>
+<ul class="level-stats">
+<li><span>6</span> Letters</li>
+<li><span>10</span> WPM</li>
+</ul>
+<button class="btn btn-level" data-level="1" aria-label="Start Beginner level">Start Now</button>
+</article>
+
+<article class="card tilt level-card level-intermediate" data-level="2" tabindex="0" role="button" aria-label="Intermediate level: expand your vocabulary">
+<div class="level-card-header">
+<div class="level-icon" aria-hidden="true">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+</div>
+<span class="level-badge">Level 2</span>
+</div>
+<h3 class="level-name-card">Intermediate</h3>
+<p class="level-desc">S, U, R, W, D, K, G, O &mdash; common letters at 15 WPM.</p>
+<ul class="level-stats">
+<li><span>8</span> Letters</li>
+<li><span>15</span> WPM</li>
+</ul>
+<button class="btn btn-level" data-level="2" aria-label="Start Intermediate level">Start Now</button>
+</article>
+
+<article class="card tilt level-card level-advanced" data-level="3" tabindex="0" role="button" aria-label="Advanced level: all characters">
+<div class="level-card-header">
+<div class="level-icon" aria-hidden="true">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
+</div>
+<span class="level-badge">Level 3</span>
+</div>
+<h3 class="level-name-card">Advanced</h3>
+<p class="level-desc">Full alphabet + numbers at 20 WPM with mixed patterns.</p>
+<ul class="level-stats">
+<li><span>36</span> Chars</li>
+<li><span>20</span> WPM</li>
+</ul>
+<button class="btn btn-level" data-level="3" aria-label="Start Advanced level">Start Now</button>
+</article>
+
+<article class="card tilt level-card level-master" data-level="4" tabindex="0" role="button" aria-label="Master level: expert challenge">
+<div class="level-card-header">
+<div class="level-icon" aria-hidden="true">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon"><path d="m2 4 3 12h14l3-12-6 7-4-7-4 7-6-7zm3 16h14"/></svg>
+</div>
+<span class="level-badge">Level 4</span>
+</div>
+<h3 class="level-name-card">Master</h3>
+<p class="level-desc">Full set + punctuation, Q codes, and 30+ WPM drills.</p>
+<ul class="level-stats">
+<li><span>52+</span> Chars</li>
+<li><span>30</span> WPM</li>
+</ul>
+<button class="btn btn-level" data-level="4" aria-label="Start Master level">Start Now</button>
+</article>
+</div>
+</section>
+
+<section class="badges-section" aria-labelledby="badges-heading">
+<h2 id="badges-heading" class="section-title">Your Achievements</h2>
+<p class="section-subtitle">Earn badges as you learn, practice, and master new skills.</p>
+<div id="badges-grid" class="badges-grid"></div>
+</section>
+</div>
+</section>
+
+<section id="view-learn" class="view" aria-labelledby="learn-heading" hidden>
+<div class="container">
+<div id="learn-root" class="learn-root">
+</div>
+</div>
+</section>
+
+<section id="view-practice" class="view" aria-labelledby="practice-heading" hidden>
+<div class="container">
+<header class="practice-header">
+<div>
+<h1 id="practice-heading" class="view-title">Practice Mode</h1>
+<p class="view-subtitle">Listen, decode, and type the character or word you hear.</p>
+</div>
+<div class="practice-controls-top">
+<button class="btn btn-icon btn-settings" id="practice-settings-btn" aria-label="Practice settings">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon" aria-hidden="true"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+</button>
+</div>
+</header>
+<div id="practice-root" class="practice-root card tilt">
+</div>
+</div>
+</section>
+
+<section id="view-reference" class="view" aria-labelledby="reference-heading" hidden>
+<div class="container">
+<header class="reference-header">
+<div>
+<h1 id="reference-heading" class="view-title">Morse Code Reference</h1>
+<p class="view-subtitle">The complete reference for letters, numbers, and common signals.</p>
+</div>
+<div class="reference-filter">
+<label for="ref-search" class="sr-only">Search reference</label>
+<input type="search" id="ref-search" placeholder="Search character..." aria-label="Search morse code reference" />
+</div>
+</header>
+<div id="reference-grid" class="reference-grid">
+</div>
+</div>
+</section>
+
+</main>
+
+<script type="module" src="js/morseData.js"></script>
+<script type="module" src="js/learnData.js"></script>
+<script type="module" src="js/audioEngine.js"></script>
+<script type="module" src="js/gameState.js"></script>
+<script type="module" src="js/learn.js"></script>
+<script type="module" src="js/levels.js"></script>
+<script type="module" src="js/ui.js"></script>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
